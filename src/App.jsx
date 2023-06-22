@@ -35,11 +35,7 @@ function App() {
   const showAlert = (show = false, type = "", msg = "") => {
     setAlert({ show, type, msg });
   };
-  const checkItem = (id) => {
-    const specificItem = list.find((item) => item.id == id);
-    specificItem.checked = true;
-    specificItem.strikethrough = true;
-  };
+
   const handlecheck = (id) => {
     const specificItem = list.find((item) => item.id == id);
     setChecked(!specificItem.checked);
@@ -76,7 +72,6 @@ function App() {
           <List
             items={list}
             removeItem={removeItem}
-            checkItem={checkItem}
             handlecheck={handlecheck}
           />
         </div>
