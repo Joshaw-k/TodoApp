@@ -37,9 +37,15 @@ function App() {
   };
 
   const handlecheck = (id) => {
-    const specificItem = list.find((item) => item.id == id);
-    setChecked(!specificItem.checked);
-    return checked;
+    setChecked(!checked);
+    list.map((item) => {
+      if (item.id == id) {
+        item.checked = checked;
+      }
+      return item;
+    });
+    localStorage.setItem("list", JSON.stringify(list));
+    getLocalStorage();
   };
   const removeItem = (id) => {
     showAlert(true, "danger", "item removed");

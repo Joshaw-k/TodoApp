@@ -8,12 +8,14 @@ const List = ({ items, removeItem, handlecheck }) => {
         const { id, title } = item;
         return (
           <article className="grocery-item" key={id}>
-            <p className={`title ${checked ? "strikethrough" : ""}`}>{title}</p>
+            <p className={`title ${item.checked ? "strikethrough" : ""}`}>
+              {title}
+            </p>
             <div className="btn-container">
               <input
                 type="checkbox"
-                checked={checked}
-                onChange={() => setChecked(!handlecheck(id))}
+                checked={item.checked}
+                onChange={() => handlecheck(id)}
               />
               <button
                 type="button"
